@@ -1,0 +1,16 @@
+function [zero, res, k] = metodoNewton_sistemi(f, x0, tol, kmax)
+
+err = 1 + tol;
+k = 0;
+while (err > tol && k < kmax)
+    A = jacobian(f, x0);
+    b = - f(x0);
+    z = A\b;
+    xnew = z + x0;
+    err = norm(z);
+    k = k + 1;
+    x0 = xnew;
+end
+
+a = xnew;
+res = norm(f(xnew));

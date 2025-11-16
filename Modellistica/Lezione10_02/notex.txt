@@ -1,0 +1,17 @@
+La completa raggiungibilità nei sistemi lineari tempo inviarianti quando la matrice R (matrice di raggiungibilità) ha rango max. Se il sistema è:
+x = Ax + b
+y = cx + du
+allora la matrice R è = [B A*B A^2*B ... A^(n-1)*B] -> n sono le variabili di base
+
+//  Comandi utili
+// R = ctrb(A, B) -> calcola la raggiungibilità di R
+// rank(R) -> calcola il rango della matrice
+
+La matrice di osservabilità O è = [C^t A^t*C^t (A^t)^2*C^t ...]
+la completa osservabilità la troviamo quando il rango di O è max.
+
+// Comandi utili
+// O = obsv(A, C) -> calcola l'osservabilità di O
+// Il punto di equilibrio viene calcolato come -inv(A)*B*ueq
+// eig(A) -> calcola gli autovalori di A
+

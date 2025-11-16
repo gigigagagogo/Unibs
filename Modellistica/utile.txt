@@ -1,0 +1,2 @@
+// SIMULINK sistemi non lineari:
+	per ogni variabile stato ci va un integratore

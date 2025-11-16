@@ -1,0 +1,23 @@
+r = 2;
+s=1;
+m=1;
+n=3;
+a=5;
+b=8;
+xmax=10;
+ymax=10;
+x0 = [5 12];
+syms x y
+
+f1 = (1 - x/xmax) * (a*y - m*x + r);
+f2 = (1 - y/ymax) * (b*x - n*y + s);
+
+[xeq, yeq] = solve([f1 == 0 f2 == 0], [x y]);
+% Convert the symbolic solutions to numeric values
+xeq = double(xeq)
+yeq = double(yeq)
+
+
+
+
+

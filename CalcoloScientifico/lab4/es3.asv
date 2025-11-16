@@ -1,0 +1,6 @@
+function [s] = calcolopi(N)
+
+f = zeros(N)
+f(2) = 2
+for n = 2: N
+    f(n+1) = 2^(n-0.5)*sqrt(1-sqrt(1-4^(1-n).*f(n)))
