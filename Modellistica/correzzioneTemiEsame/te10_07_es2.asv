@@ -1,0 +1,26 @@
+clear all
+% Es 2.1
+syms x1 x2 u
+f = [3*(x1^2 + x1)*x2; -4*x2 + x1 - x2*u + 3*u];
+ueq = 0;
+xeq = solve(subs(f,u,ueq), [x1 x2])
+
+xeq1 = double([xeq.x1(1) xeq.x2(1)]) % [0 0]
+xeq2 = double([xeq.x1(2) xeq.x2(2)]) % [-1 -0.25]
+
+J_s = jacobian(f, [x1 x2])
+
+J1 = double(subs(J_s, [x1,x2,u], [xeq1, ueq]))
+J2 = double(subs(J_s, [x1,x2,u], [xeq2, ueq]))
+
+aval1 = eig(J1) % [-4 0] => xeq1 non è classificabile con il metodo della linearizzazione (perché abbiamo un autovalore = 0)
+aval2 = eig(J2) % [-4 0.75] => xeq2 non è stabile (sella)
+
+% Es 2.2
+% Per stabilire l'uscita devo calcolare il grado relativo del sistema
+% rispetto alle due uscite. Se una delle uscite non ha grado relativo
+% massimo la devo scartare. Se entrambe lo hanno max posso sceglierne una
+% delle due
+
+y1 = 5*x2; % non ha grado relativo pari a 0
+dy1 = jacobian(y1, [x1 x2])

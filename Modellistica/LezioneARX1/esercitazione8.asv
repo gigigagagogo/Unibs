@@ -1,0 +1,6 @@
+clear all
+load cstr.mat
+
+% ho un solo ingresso e ci interessa l'uscita o1 (prima colonna)
+
+dati = iddata(y(:,1), U, Tc)
